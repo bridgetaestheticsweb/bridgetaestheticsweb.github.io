@@ -586,10 +586,7 @@ body.dark-mode .gallery-item {
   display: flex;
   align-items: center;
   gap: 4rem;
-  animation: scrollCertificates 30s linear infinite;
-  cursor: grab;
-  overflow-x: scroll;
-  scrollbar-width: none; /* hide scrollbar (Firefox) */
+  animation: scrollCertificates 50s linear infinite;
 }
 
 /* make certificates large enough for text readability */
@@ -620,16 +617,6 @@ body.dark-mode .gallery-item {
     transform: translateX(-50%); /* slide across the duplicated set */
   }
 }
-
-
-.certificates::-webkit-scrollbar {
-  display: none; /* hide scrollbar (Chrome/Safari) */
-}
-
-.certificates.active {
-  cursor: grabbing;
-}
-
 
 
 

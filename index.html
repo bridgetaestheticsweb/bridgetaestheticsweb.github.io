@@ -252,53 +252,7 @@ document.querySelectorAll('.collapsible').forEach(header => {
     nav.classList.toggle('open');
   });
 </script>
-<script>
-  const certificates = document.querySelector('.certificates');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
 
-  // Enable horizontal dragging with touch or mouse
-  certificates.addEventListener('mousedown', (e) => {
-    isDown = true;
-    certificates.classList.add('active');
-    startX = e.pageX - certificates.offsetLeft;
-    scrollLeft = certificates.scrollLeft;
-  });
-
-  certificates.addEventListener('mouseleave', () => {
-    isDown = false;
-    certificates.classList.remove('active');
-  });
-
-  certificates.addEventListener('mouseup', () => {
-    isDown = false;
-    certificates.classList.remove('active');
-  });
-
-  certificates.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - certificates.offsetLeft;
-    const walk = (x - startX) * 1.5; // drag speed
-    certificates.scrollLeft = scrollLeft - walk;
-  });
-
-  // Touch support for mobile & tablets
-  let touchStartX = 0;
-  let touchScrollLeft = 0;
-
-  certificates.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].pageX;
-    touchScrollLeft = certificates.scrollLeft;
-  });
-
-  certificates.addEventListener('touchmove', (e) => {
-    const touchX = e.touches[0].pageX;
-    const move = (touchX - touchStartX) * 1.5;
-    certificates.scrollLeft = touchScrollLeft - move;
-  });
-</script>
 
 </body>
 </html>
