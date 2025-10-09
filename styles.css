@@ -813,56 +813,124 @@ body.dark-mode .gallery-item {
   }
 }
 
-/* 📱 Mobile Devices (≤ 768px) */
+/* ---------------- MOBILE NAVIGATION & HEADER ---------------- */
 @media (max-width: 768px) {
+
+  /* Header adjustments */
   .site-header {
-    flex-wrap: nowrap; /* prevents nav from being pushed down */
-    flex-direction: column; /* stack logo and nav button vertically */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 10px 12px;
-    position: relative; /* ensures .site-nav absolute positioning attaches here */
+    padding: 10px 16px;
+  }
+
+  .logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* spacing between logo and title */
   }
 
   .logo img {
     height: 70px;
     max-width: 80px;
+    
   }
 
   .brand {
-    font-size: 1.6rem;
+      font-size: 1.6rem;
+    margin: 0; /* remove extra spacing */
   }
 
-  /* 🪄 Mobile Nav Stack */
+  /* Navigation menu */
   .site-nav {
-  flex-direction: column;
-  width: 100%;
-  gap: 6px;
-  margin-top: 0; /* remove the gap */
-  position: absolute;
-  top: 100%; /* attach directly below header */
-  left: 0;
-  background: var(--bg);
-  border-top: none;
-  z-index: 40;
-}
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    background: var(--panel);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    z-index: 90;
+  }
 
+  .site-nav.open {
+    max-height: 300px; /* adjust if you have more links */
+    opacity: 1;
+    background: transparent;
+  }
 
   .site-nav a {
     width: 100%;
     text-align: center;
+    padding: 14px 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
   }
 
+  .site-nav a:hover {
+    background: var(--brand);
+    color: #fff;
+  }
+
+  .site-nav a.active {
+    color: #fff;
+    background: linear-gradient(90deg, var(--brand), var(--gold));
+  }
+
+  /* Nav toggle (hamburger) */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Hero adjustments */
   .hero h1 {
     font-size: 2rem;
   }
 
+  /* Grid & gallery adjustments */
   .grid,
   .price-list,
   .gallery-grid {
     grid-template-columns: 1fr;
   }
 
+  /* About section */
   .about-container {
     flex-direction: column;
     text-align: center;
@@ -877,6 +945,7 @@ body.dark-mode .gallery-item {
     font-size: 0.95rem;
   }
 
+  /* Flipbook arrows & images */
   .flipbook-arrow {
     font-size: 1.8rem;
   }
@@ -885,6 +954,17 @@ body.dark-mode .gallery-item {
     max-width: 90%;
   }
 
+  /* Certificates carousel */
+  .certificates {
+    gap: 1.5rem;
+    animation-duration: 80s; /* slower scroll */
+  }
+
+  .certificates img {
+    width: 280px;
+  }
+
+  /* Training section adjustments */
   .training-section {
     padding: 2rem 1rem;
   }
@@ -895,132 +975,5 @@ body.dark-mode .gallery-item {
 
   .training-section h3 {
     font-size: 1.2rem;
-  }
-
-  .certificates {
-    gap: 1.5rem;
-    animation-duration: 80s; /* slower scroll */
-  }
-
-  .certificates img {
-    width: 280px;
-  }
-}
-
-/* 📲 Small Phones (≤ 480px) */
-@media (max-width: 480px) {
-  .brand {
-    font-size: 1.4rem;
-  }
-
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .card h2 {
-    font-size: 1.3rem;
-  }
-
-  .btn {
-    padding: 12px 0;
-    font-size: 1rem;
-  }
-
-  .flipbook-slide img {
-    max-width: 100%;
-  }
-
-  .gallery-item {
-    border-radius: 10px;
-  }
-
-  .site-footer {
-    font-size: 0.85rem;
-  }
-
-  .social-icon {
-    width: 34px;
-    height: 34px;
-    font-size: 1rem;
-  }
-}
-/* -------------------------------------
-   MOBILE NAVIGATION
--------------------------------------- */
-
-/* Hamburger button */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 100;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 26px;
-  height: 3px;
-  background: var(--text);
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-/* When menu is open (animated X) */
-.nav-toggle.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.nav-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.nav-toggle.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Slide-down nav container */
-.site-nav {
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .site-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: center;
-    background: var(--panel);
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    border-bottom: 2px solid var(--gold);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  }
-
-  .site-nav.open {
-    max-height: 300px; /* enough for all links */
-    opacity: 1;
-  }
-
-  .site-nav a {
-    width: 100%;
-    text-align: center;
-    padding: 14px 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  .nav-toggle {
-    display: flex;
   }
 }
