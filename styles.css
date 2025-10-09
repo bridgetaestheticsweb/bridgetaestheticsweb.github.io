@@ -65,7 +65,7 @@ body {
    HEADER
 -------------------------------------- */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 50;
   display: flex;
@@ -584,9 +584,8 @@ body.dark-mode .gallery-item {
 
 .certificates {
   display: flex;
-  align-items: center;
-  gap: 4rem;
-  animation: scrollCertificates 50s linear infinite;
+  align-items: center;  gap: 4rem;
+  animation: scrollCertificates 30s linear infinite;
 }
 
 /* make certificates large enough for text readability */
