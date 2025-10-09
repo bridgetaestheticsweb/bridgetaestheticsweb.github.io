@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Location — Aesthetics by Bridget</title>
+  <meta name="description" content="Find Aesthetics by Bridget location and opening hours." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<body>
+    <header class="site-header">
+      <div class="logo">
+      <img src="Images/logodark.png" alt="Logo">
+      </div>
+      <!-- Hamburger Menu -->
+<button class="nav-toggle" aria-label="Toggle navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+        <a class="brand" href="location.html">Aesthetics <span>by Bridget</span></a>
+        <nav id="site-nav" class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="location.html">Location</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+  <main class="container">
+    <section class="hero">
+    <h1>Find Us</h1>
+    <p>Our beauty studio is conveniently located for your comfort and ease.</p>
+    </section>
+    <hr class="section-divider">
+    
+
+    <div class="card">
+      <h2>Address:</h2>
+      <p>188 Townsend Lane<br>Liverpool<br>L13 9DN</p>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card" style="margin-top: 20px;">
+        <h2>On a map</h2>
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2376.8993263809416!2d-2.9397899079065093!3d53.43450829674715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b2185f3b262ff%3A0x342326f760bdc939!2sBE%20Beautiful%20AESTHETICS%20%26%20HOLISTICS!5e0!3m2!1sen!2suk!4v1757185487904!5m2!1sen!2suk"
+        width="100%"
+        height="300"
+        style="border:0; border-radius: 8px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      </div> 
+  </main>
+  <footer class="site-footer">
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=100086726771478" target="_blank" aria-label="Facebook" class="social-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/aesthetic_by_bridget/" target="_blank" aria-label="Instagram" class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a><button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button></a>
+    </div>
+    <p>© <span id="year"></span> Aesthetics by Bridget. All rights reserved.</p>
+    
+  </footer>
+  <script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Check saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️ Light Mode';
+  }
+
+  toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const darkModeEnabled = body.classList.contains('dark-mode');
+    toggleButton.textContent = darkModeEnabled ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('theme', darkModeEnabled ? 'dark' : 'light');
+  });
+</script>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

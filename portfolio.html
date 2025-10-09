@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Aesthetics by Bridget</title>
+  <meta name="description" content="Before and after gallery of Aesthetics by Bridget clients." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header class="site-header">
+      <div class="logo">
+      <img src="Images/logodark.png" alt="Logo">
+      </div>
+      <!-- Hamburger Menu -->
+<button class="nav-toggle" aria-label="Toggle navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+        <a class="brand" href="portfolio.html">Aesthetics <span>by Bridget</span></a>
+        <nav id="site-nav" class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="location.html">Location</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+<main class="container">
+  <section class="hero">
+  <h1>Portfolio</h1>
+  <p>Before & afters, transformations, and flawless results.</p>
+     </section>
+     <hr class="section-divider">
+      <section class="portfolio-gallery">
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="images/gallery1.jpg" alt="Before and After 1">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery2.jpg" alt="Lip Filler Result">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery3.jpg" alt="Anti-wrinkle Treatment">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery4.jpg" alt="Brow Treatment">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery5.jpg" alt="Skin Glow Facial">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery6.jpg" alt="Cheek Enhancement">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery7.jpg" alt="Cheek Enhancement">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery8.jpg" alt="Cheek Enhancement">
+    </div>
+     <div class="gallery-item">
+      <img src="images/gallery9.jpg" alt="Cheek Enhancement">
+    </div>
+    <div class="gallery-item">
+      <img src="images/gallery10.jpg" alt="Cheek Enhancement">
+    </div>
+  </div>
+  </section>
+  
+
+
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" alt="">
+</div>
+
+  <section class="card flipbook-container">
+  <h2 class="section-title">Before & After Transformations</h2>
+  <p class="section-subtitle">Real client results — swipe or use arrows to browse</p>
+    <!-- Slide 1 -->
+    <div class="flipbook-slide active">
+      <div class="image-pair">
+        <img src="Images/botox1.jpg" alt="Before Botox">
+        <p class="caption">Before</p>
+      </div>
+      <div class="image-pair">
+        <img src="Images/botox2.jpg" alt="After Botox">
+        <p class="caption">After</p>
+      </div>
+   </div>
+
+    <!-- Slide 2 -->
+    <div class="flipbook-slide">
+      <div class="image-pair">
+        <img src="Images/botox3.jpg" alt="Before treatment 2">
+        <p class="caption">Before</p>
+      </div>
+      <div class="image-pair">
+        <img src="Images/botox4.jpg" alt="After treatment 2">
+        <p class="caption">After</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="flipbook-slide">
+      <div class="image-pair">
+        <img src="Images/lipfillerB1.jpg" alt="Before treatment 3">
+        <p class="caption">Before</p>
+      </div>
+      <div class="image-pair">
+        <img src="Images/lipfillerA1.jpg" alt="After treatment 3">
+        <p class="caption">After</p>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button class="flipbook-arrow left" onclick="changeSlide(-1)">‹</button>
+    <button class="flipbook-arrow right" onclick="changeSlide(1)">›</button>
+  </div>
+</section>
+</main>
+
+
+  <script src="script.js"></script>
+</main>
+  <footer class="site-footer">
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=100086726771478" target="_blank" aria-label="Facebook" class="social-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/aesthetic_by_bridget/" target="_blank" aria-label="Instagram" class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a><button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button></a>
+    </div>
+    <p>© <span id="year"></span> Aesthetics by Bridget. All rights reserved.</p>
+    
+  </footer>
+  <script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Check saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️ Light Mode';
+  }
+
+  toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const darkModeEnabled = body.classList.contains('dark-mode');
+    toggleButton.textContent = darkModeEnabled ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('theme', darkModeEnabled ? 'dark' : 'light');
+  });
+</script>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
+  

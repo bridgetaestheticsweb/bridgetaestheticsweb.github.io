@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Aesthetics by Bridget</title>
+  <meta name="description" content="Contact Aesthetics by Bridget to book your next beauty appointment." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="logo">
+      <img src="Images/logodark.png" alt="Logo">
+      </div>
+      <!-- Hamburger Menu -->
+<button class="nav-toggle" aria-label="Toggle navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+        <a class="brand" href="contact.html">Aesthetics <span>by Bridget</span></a>
+        <nav id="site-nav" class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="location.html">Location</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+
+  <main class="container">
+    <section class="hero">
+    <h1>Contact Me</h1>
+    <p>I’d love to hear from you. Book an appointment or ask me any questions.</p>
+    </section>
+
+    <!-- Contact Form -->
+<form class="card form" action="https://formspree.io/f/xzzayebw" method="POST">
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required />
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required /> 
+    </div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <button class="btn" type="submit">Send</button>
+  </form>
+
+    <!-- Other contact info -->
+    <div class="card" style="margin-top:20px;">
+      <h2>Other ways to reach me</h2>
+      <p><strong>Phone:</strong> <a href="tel:+447517704120">+44 7517 704120</a></p>
+      <p><strong>Email:</strong> <a href="mailto:bridgetaesthetics.web@gmail.com">bridgetaesthetics.web@gmail.com</a></p>
+    </div>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=100086726771478" target="_blank" aria-label="Facebook" class="social-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/aesthetic_by_bridget/" target="_blank" aria-label="Instagram" class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a><button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button></a>
+    </div>
+    <p>© <span id="year"></span> Aesthetics by Bridget. All rights reserved.</p>
+    
+  </footer>
+  <script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Check saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️ Light Mode';
+  }
+
+  toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const darkModeEnabled = body.classList.contains('dark-mode');
+    toggleButton.textContent = darkModeEnabled ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('theme', darkModeEnabled ? 'dark' : 'light');
+  });
+</script>
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
+
+        
