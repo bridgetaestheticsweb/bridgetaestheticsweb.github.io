@@ -67,6 +67,8 @@ body {
 .site-header {
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 50;
   display: flex;
   align-items: center;
@@ -78,6 +80,7 @@ body {
   -webkit-backdrop-filter: blur(12px) saturate(150%);
   border-bottom: 4px solid var(--gold);
 }
+
 
 .dark-mode .site-header {
   background: rgba(20, 34, 56, 0.8);
@@ -178,6 +181,7 @@ body {
   display: grid;
   gap: 1rem;
   text-align: center;
+  margin-top: 120px; /* adjust to your header height */
 }
 
 .hero h1 {
@@ -812,9 +816,12 @@ body.dark-mode .gallery-item {
 /* 📱 Mobile Devices (≤ 768px) */
 @media (max-width: 768px) {
   .site-header {
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* prevents nav from being pushed down */
+    flex-direction: column; /* stack logo and nav button vertically */
+    align-items: center;
     justify-content: center;
     padding: 10px 12px;
+    position: relative; /* ensures .site-nav absolute positioning attaches here */
   }
 
   .logo img {
@@ -828,11 +835,18 @@ body.dark-mode .gallery-item {
 
   /* 🪄 Mobile Nav Stack */
   .site-nav {
-    flex-direction: column;
-    width: 100%;
-    gap: 6px;
-    margin-top: 8px;
-  }
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+  margin-top: 0; /* remove the gap */
+  position: absolute;
+  top: 100%; /* attach directly below header */
+  left: 0;
+  background: var(--bg);
+  border-top: none;
+  z-index: 40;
+}
+
 
   .site-nav a {
     width: 100%;
