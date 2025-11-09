@@ -66,6 +66,7 @@ body {
 -------------------------------------- */
 .site-header {
   position: fixed;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -87,21 +88,33 @@ body {
   border-bottom-color: var(--gold);
 }
 
-.logo img {
-  height: 100px;
+/* Wraps logo and brand text */
+.logo-brand {
+  display: flex;
+  align-items: center; /* ✅ aligns logo + text together */
+  gap: 12px;
+}
+
+/* Adjust logo size for better balance */
+.logo-brand .logo img {
+  height: 70px;  /* try 70–80px instead of 100px */
   width: auto;
-  max-width: 100px;
-  border-radius: 6px;
+  display: block;
 }
 
 .brand {
+  display: flex;        /* ensures text centers on its own line-height */
+  align-items: center;  /* ✅ centers text vertically within logo-brand */
+  line-height: 1;       /* avoids extra space above/below */
+  margin: 0;
+  text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
   font-size: 2rem;
-  margin: 0;
   color: var(--brand);
   letter-spacing: 0.5px;
   text-decoration: none;
+  align-items: center;
   text-shadow:
     0 0 2px #fff,
     0 0 4px #fff,
@@ -811,6 +824,10 @@ body.dark-mode .gallery-item {
     flex-wrap: wrap;
     gap: 20px;
   }
+}
+
+.nav-toggle {
+  display: none;
 }
 
 /* ---------------- MOBILE NAVIGATION & HEADER ---------------- */
