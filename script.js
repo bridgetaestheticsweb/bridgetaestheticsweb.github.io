@@ -15,12 +15,25 @@ if (toggle && nav) {
   });
 }
 
-// Highlight active nav item based on current filename
-const current = location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('#site-nav a').forEach(a => {
-  const href = a.getAttribute('href');
-  if (href === current) a.classList.add('active');
+
+// Highlight active nav item based on current URL
+document.addEventListener("DOMContentLoaded", () => {
+  const current = window.location.pathname.split("/").pop() || "index.html";
+
+  document.querySelectorAll("#site-nav a").forEach(a => {
+    const href = a.getAttribute("href");
+
+    // Match when filenames align OR when using GitHub Pages base path
+    if (
+      href === current ||
+      window.location.pathname.endsWith(href) ||
+      (href === "index.html" && (current === "" || current === "index.html"))
+    ) {
+      a.classList.add("active");
+    }
+  });
 });
+
 
 // Footer year
 const year = document.getElementById('year');
